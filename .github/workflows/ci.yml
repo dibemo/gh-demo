@@ -22,4 +22,13 @@ jobs:
         node-version: 18.x
         cache: 'npm'
     - run: npm install
-    - run: npm run start
+  
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
+      with:
+        image: dibemo/hello-nodejs
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
