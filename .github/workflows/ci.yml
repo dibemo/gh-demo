@@ -23,7 +23,7 @@ jobs:
         cache: 'npm'
     - run: npm install
   
-    - uses: mr-smithers-excellent/docker-build-push@v6
+    - uses: mr-smithers-excellent/docker-build-push@v4
       name: Build & push Docker image
       with:
         image: dibemo/hello-nodejs
