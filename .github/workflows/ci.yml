@@ -54,6 +54,7 @@ jobs:
 
     - name: Get GKE credentials
       run: |
+        gcloud auth activate-service-account --key-file=${{ secrets.GCLOUD_SERVICE_KEY }}
         gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER }} --zone ${{ secrets.GKE_ZONE }} --project ${{ secrets.GCP_PROJECT }}
 
     - name: Deploy to GKE
